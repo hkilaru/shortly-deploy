@@ -1,10 +1,8 @@
-var knex = require('knex');
-var Bookshelf = require('bookshelf')(knex);
 var path = require('path');
-var pg = require('pg');
+var knex = require('knex');
 
-var db = Bookshelf(knex({
-  client: 'pg',
+var db = knex({
+  client: 'sqlite3',
   connection: {
     host: '127.0.0.1',
     user: process.env.DB_USER || 'your_database_user',
@@ -13,9 +11,9 @@ var db = Bookshelf(knex({
     charset: 'utf8',
     filename: path.join(__dirname, '../db/shortly.sqlite')
   }
-}));
+});
 
-
+var Bookshelf = require('bookshelf')(knex);
 
 db.knex.schema.hasTable('urls').then(function(exists) {
   if (!exists) {

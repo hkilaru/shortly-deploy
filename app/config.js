@@ -1,7 +1,8 @@
 var path = require('path');
 var knex = require('knex');
+var Bookshelf = require('bookshelf');
 
-var db = knex({
+var db =  Bookshelf.initialize({
   client: 'sqlite3',
   connection: {
     host: '127.0.0.1',

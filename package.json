@@ -7,7 +7,7 @@
   "license": "Proprietary",
   "private": true,
   "engines": {
-    "node": "*"
+    "node": "6.2.2"
   },
   "dependencies": {
     "knex": "~0.5.7",

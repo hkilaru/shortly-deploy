@@ -1,6 +1,6 @@
 var path = require('path');
-var knex = require('knex');
 var Bookshelf = require('bookshelf');
+var knex = require('knex');
 
 var db =  Bookshelf.initialize({
   client: 'sqlite3',
@@ -13,8 +13,6 @@ var db =  Bookshelf.initialize({
     filename: path.join(__dirname, '../db/shortly.sqlite')
   }
 });
-
-var Bookshelf = require('bookshelf')(knex);
 
 db.knex.schema.hasTable('urls').then(function(exists) {
   if (!exists) {

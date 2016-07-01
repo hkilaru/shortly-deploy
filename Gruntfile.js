@@ -30,27 +30,32 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'public/built.min.js': ['public/built.js']
+          'public/built.min.js': 'public/built.js'
         }
       }
     },
 
     jshint: {
-      files: [
+      files: {
         // Add filespec list here
-        src: 'public/built.js'
-      ],
+        src: 'public/built.min.js'
+      },
       options: {
         force: 'true',
         jshintrc: '.jshintrc',
         ignores: [
           'public/lib/**/*.js',
           'public/dist/**/*.js'
-        ]
+        ],
+        reporterOutput: ""
       }
     },
 
     cssmin: {
+       css:{
+        src: 'public/style.css',
+        dest: 'public/style.min.css'
+       }
     },
 
     watch: {
@@ -106,8 +111,7 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', ['concat', 'jshint', 'uglify']);
-
+  grunt.registerTask('build', ['concat', 'uglify', 'jshint', 'cssmin']);
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {

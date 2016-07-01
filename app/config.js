@@ -1,4 +1,5 @@
 var knex = require('knex');
+var Bookshelf = require('bookshelf')(knex);
 var path = require('path');
 var pg = require('pg');
 
@@ -14,7 +15,7 @@ var db = Bookshelf(knex({
   }
 }));
 
-var Bookshelf = require('bookshelf')(knex);
+
 
 db.knex.schema.hasTable('urls').then(function(exists) {
   if (!exists) {

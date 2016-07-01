@@ -2,17 +2,17 @@ var knex = require('knex');
 var path = require('path');
 var pg = require('pg');
 
-var db = knex({
+var db = Bookshelf(knex({
   client: 'pg',
   connection: {
     host: '127.0.0.1',
-    user: 'your_database_user',
+    user: process.env.DB_USER || 'your_database_user',
     password: 'password',
     database: 'shortlydb',
     charset: 'utf8',
     filename: path.join(__dirname, '../db/shortly.sqlite')
   }
-});
+}));
 
 var Bookshelf = require('bookshelf')(knex);
 

@@ -1,8 +1,9 @@
 var knex = require('knex');
 var path = require('path');
+var pg = require('pg');
 
 var db = knex({
-  client: 'sqlite3',
+  client: 'pg',
   connection: {
     host: '127.0.0.1',
     user: 'your_database_user',

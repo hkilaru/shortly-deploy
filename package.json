@@ -8,7 +8,7 @@
   "private": true,
   "dependencies": {
     "knex": "~0.11.7",
-    "node": "*",
+    "node": "6.2.2",
     "bookshelf": "~0.9.5",
     "sqlite3": "~3.1.4",
     "express": "~3.4.8",

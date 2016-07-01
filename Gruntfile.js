@@ -33,6 +33,7 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         // Add filespec list here
+        src: 'public/built.js'
       ],
       options: {
         force: 'true',
